@@ -1,7 +1,14 @@
 {
   "name": "vue3-telephone-input",
-  "version": "1.0.0",
   "description": "International Telephone Input with Vue 3",
+  "version": "1.0.0",
+  "private": false,
+  "author": "Egor Lentarev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lentarev/vue3-telephone-input.git"
+  },
   "type": "module",
   "main": "./dist/vue3-telephone-input.umd.js",
   "module": "./dist/vue3-telephone-input.es.js",
@@ -14,6 +21,7 @@
       "import": "./dist/vue3-telephone-input.css"
     }
   },
+  "types": "types/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -24,12 +32,6 @@
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lentarev/vue3-telephone-input.git"
-  },
-  "author": "Egor Lentarev",
-  "license": "MIT",
   "dependencies": {
     "libphonenumber-js": "^1.12.7",
     "vue": "^3.5.13"
@@ -56,5 +58,9 @@
     "vite-plugin-vue-devtools": "^7.7.2",
     "vitest": "^3.1.1",
     "vue-tsc": "^2.2.8"
-  }
+  },
+  "files": [
+    "dist",
+    "types"
+  ]
 }
