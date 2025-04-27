@@ -69,14 +69,14 @@ body {
   --bg-input: rgb(244, 246, 250);
   --bg-input-success: #f0fff0;
   --bg-input-error: rgb(255, 245, 245);
-  --color-border: #d4d4d4;
+
   --color-input-text: #2a2a2a;
   --color-input-success-text: #268f0d;
   --color-input-error-text: #c24f41;
 
   --padding-input: 2px 12px;
   --border-radius-input: 6px;
-  --border-input: #b4b4b4;
+  --border-input: #e3e3e3;
 
   &__input {
     display: flex;
