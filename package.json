@@ -1,7 +1,7 @@
 {
   "name": "vue3-telephone-input",
   "description": "International Telephone Input with Vue 3",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "author": "Egor Lentarev",
   "license": "MIT",
