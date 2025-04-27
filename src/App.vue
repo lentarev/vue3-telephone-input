@@ -73,10 +73,10 @@ body {
   --color-input-text: #2a2a2a;
   --color-input-success-text: #268f0d;
   --color-input-error-text: #c24f41;
+  --color-input-border: #e3e3e3;
 
   --padding-input: 2px 12px;
   --border-radius-input: 6px;
-  --border-input: #e3e3e3;
 
   &__input {
     display: flex;
@@ -84,7 +84,7 @@ body {
     padding: var(--padding-input);
     border-radius: var(--border-radius-input);
     background: var(--bg-input);
-    border: 1px solid var(--border-input);
+    border: 1px solid var(--color-input-border);
   }
 
   &__input_valid {
