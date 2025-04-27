@@ -60,3 +60,7 @@ npm install --save vue3-telephone-input
   </div>
 </template>
 ```
+
+## License
+Copyright (c) 2025 Egor Lentarev.
+Released under the [MIT License](https://github.com/lentarev/vue3-telephone-input/blob/master/LICENSE).
