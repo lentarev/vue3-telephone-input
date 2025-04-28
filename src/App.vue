@@ -43,7 +43,6 @@ const onPhoneNumberDetails = (val: PhoneNumber) => {
 
 <style lang="scss">
 body {
-  background-color: #ffffff;
   margin: 0;
   padding: 0;
   font-family:
