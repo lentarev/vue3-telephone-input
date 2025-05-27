@@ -1,7 +1,7 @@
 {
   "name": "vue3-telephone-input",
   "description": "International Telephone Input with Vue 3",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": false,
   "author": "Egor Lentarev",
   "license": "MIT",
@@ -17,6 +17,9 @@
       "types": "./vue3-phone-input.d.ts",
       "import": "./dist/vue3-telephone-input.es.js",
       "require": "./dist/vue3-telephone-input.umd.js"
+    },
+    "./IVue3TelephoneInput.ts": {
+      "import": "./IVue3TelephoneInput.ts"
     },
     "./dist/vue3-telephone-input.css": {
       "import": "./dist/vue3-telephone-input.css"
@@ -73,6 +76,7 @@
   ],
   "files": [
     "dist",
-    "vue3-phone-input.d.ts"
+    "vue3-phone-input.d.ts",
+    "IVue3TelephoneInput.ts"
   ]
 }
