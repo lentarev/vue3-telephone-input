@@ -21,7 +21,7 @@ npm install --save vue3-telephone-input
 <script lang="ts">
   import "vue3-telephone-input/dist/vue3-telephone-input.css";
   import Vue3TelephoneInput from "vue3-telephone-input";
-  import { IVue3TelephoneInput } from "vue3-telephone-input/types/interfaces/IVue3TelephoneInput";
+  import type { IVue3TelephoneInput } from "vue3-telephone-input/IVue3TelephoneInput.ts";
 
   export default defineComponent({
     name: "FormLogin",
@@ -45,7 +45,7 @@ npm install --save vue3-telephone-input
 <script setup lang="ts">
   import "vue3-telephone-input/dist/vue3-telephone-input.css";
   import Vue3TelephoneInput from "vue3-telephone-input";
-  import { IVue3TelephoneInput } from "vue3-telephone-input/types/interfaces/IVue3TelephoneInput";
+  import type { IVue3TelephoneInput } from "vue3-telephone-input/IVue3TelephoneInput.ts";
   
   const phone: IVue3TelephoneInput = reactive({
     phoneNumber: "",
