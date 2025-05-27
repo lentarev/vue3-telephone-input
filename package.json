@@ -1,7 +1,7 @@
 {
   "name": "vue3-telephone-input",
   "description": "International Telephone Input with Vue 3",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": false,
   "author": "Egor Lentarev",
   "license": "MIT",
@@ -73,7 +73,6 @@
   ],
   "files": [
     "dist",
-    "vue3-phone-input.d.ts",
-    "IVue3TelephoneInput.d.ts"
+    "vue3-phone-input.d.ts"
   ]
 }
