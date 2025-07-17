@@ -1,16 +1,52 @@
 <script setup lang="ts">
 import parsePhoneNumberFromString from "libphonenumber-js";
 import { useFormatPhoneNumber } from "@/components/utils/formatPhoneNumber.ts";
-import { type Ref, ref } from "vue";
+import { computed, type ComputedRef, type Ref, ref } from "vue";
 
-const props = defineProps({
-  placeholder: { type: String },
-});
+// Define props
+const props = withDefaults(
+  defineProps<{
+    modelValue?: string;
+    placeholder?: string | undefined;
+  }>(),
+  {
+    modelValue: () => {
+      return "";
+    },
 
+    placeholder: () => {
+      return "";
+    },
+  },
+);
+
+// Define emits
 const emit = defineEmits(["update:modelValue", "details"]);
 
+// Define refs
 const formatedNumber = ref("");
 const isValid: Ref<boolean | undefined> = ref();
+
+/**
+ * Computed
+ */
+const cModelValue: ComputedRef<string> = computed(() => {
+  const inputValue = props?.modelValue;
+
+  if (inputValue !== undefined) {
+    const clearedInput = inputValue.replace(/[\s\D]+/g, "");
+    const phoneNumber = clearedInput.slice(0, 16);
+    const pfn = parsePhoneNumberFromString("+" + phoneNumber);
+
+    formatedNumber!.value = useFormatPhoneNumber(phoneNumber, pfn?.countryCallingCode);
+    isValid!.value = pfn?.isValid();
+
+    emit("update:modelValue", phoneNumber);
+    emit("details", pfn);
+  }
+
+  return props.modelValue;
+});
 
 /**
  * Handling the input event.
@@ -33,6 +69,9 @@ const onInputValue = (e: Event) => {
 
 <template>
   <div class="phone">
+    <div v-show="false">
+      {{ cModelValue }}
+    </div>
     <input
       :class="{ phone__input: true, phone__input_valid: isValid === true, phone__input_error: isValid === false }"
       :placeholder="props.placeholder"

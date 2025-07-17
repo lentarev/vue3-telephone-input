@@ -2,16 +2,41 @@
 import UiCountryCode from "./components/ui/UiCountryCode.vue";
 import UiPhoneInput from "./components/ui/UiPhoneInput.vue";
 import type { PhoneNumber } from "libphonenumber-js";
-import { type Ref, ref } from "vue";
+import { computed, type ComputedRef, type Ref, ref } from "vue";
 
-const props = defineProps({
-  placeholder: { type: String, default: "Your phone number" },
-});
+// Define props
+const props = withDefaults(
+  defineProps<{
+    modelValue?: { phoneNumber: string; isValid: boolean | undefined };
+    placeholder?: string | undefined;
+  }>(),
+  {
+    modelValue: () => {
+      return { phoneNumber: "", isValid: undefined };
+    },
+
+    placeholder: () => {
+      return "Your phone number";
+    },
+  },
+);
+
+// Define emits
 const emit = defineEmits(["update:modelValue", "details"]);
 
+// Define refs
 const country: Ref<string | undefined> = ref("");
 const phone: Ref<string> = ref("");
 const isValid: Ref<boolean | undefined> = ref();
+
+/**
+ * Computed
+ */
+const cModelValue: ComputedRef<{ phoneNumber: string; isValid: boolean | undefined }> = computed(() => {
+  phone!.value = props.modelValue?.phoneNumber;
+
+  return props.modelValue;
+});
 
 const onPhoneNumberDetails = (val: PhoneNumber) => {
   country.value = val?.country;
@@ -23,6 +48,10 @@ const onPhoneNumberDetails = (val: PhoneNumber) => {
 
 <template>
   <div class="vue3-telephone-input">
+    <div v-show="false">
+      {{ cModelValue }}
+    </div>
+
     <div
       :class="{
         'vue3-telephone-input__input': true,
