@@ -12,7 +12,7 @@ const props = withDefaults(
   }>(),
   {
     modelValue: () => {
-      return { phoneNumber: "", isValid: false };
+      return { phoneNumber: "", isValid: undefined };
     },
 
     placeholder: () => {
@@ -43,6 +43,8 @@ const onPhoneNumberDetails = (val: PhoneNumber) => {
   country.value = val?.country;
   isValid.value = val?.isValid();
 
+  console.log("Rest value validation");
+
   emit("update:modelValue", { phoneNumber: phone.value, isValid: isValid.value });
 };
 </script>
@@ -66,6 +68,7 @@ const onPhoneNumberDetails = (val: PhoneNumber) => {
         v-on:details="onPhoneNumberDetails"
         v-model="phone"
         :placeholder="props.placeholder"
+        :p-is-valid="isValid"
       />
     </div>
   </div>

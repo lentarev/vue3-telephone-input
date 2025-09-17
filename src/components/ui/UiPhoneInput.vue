@@ -8,6 +8,7 @@ const props = withDefaults(
   defineProps<{
     modelValue?: string;
     placeholder?: string | undefined;
+    pIsValid?: boolean;
   }>(),
   {
     modelValue: () => {
@@ -17,6 +18,8 @@ const props = withDefaults(
     placeholder: () => {
       return "";
     },
+
+    pIsValid: undefined,
   },
 );
 
@@ -41,11 +44,16 @@ const cModelValue: ComputedRef<string> = computed(() => {
     formatedNumber!.value = useFormatPhoneNumber(phoneNumber, pfn?.countryCallingCode);
     isValid!.value = pfn?.isValid();
 
-    emit("update:modelValue", phoneNumber);
-    emit("details", pfn);
+    // emit("update:modelValue", phoneNumber);
+    // emit("details", pfn);
   }
 
   return props.modelValue;
+});
+
+const cIsValid: ComputedRef<boolean | undefined> = computed(() => {
+  isValid!.value = props.pIsValid;
+  return props?.pIsValid;
 });
 
 /**
@@ -71,6 +79,7 @@ const onInputValue = (e: Event) => {
   <div class="phone">
     <div v-show="false">
       {{ cModelValue }}
+      {{ cIsValid }}
     </div>
     <input
       :class="{ phone__input: true, phone__input_valid: isValid === true, phone__input_error: isValid === false }"
