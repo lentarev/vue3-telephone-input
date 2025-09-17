@@ -43,8 +43,6 @@ const onPhoneNumberDetails = (val: PhoneNumber) => {
   country.value = val?.country;
   isValid.value = val?.isValid();
 
-  console.log("Rest value validation");
-
   emit("update:modelValue", { phoneNumber: phone.value, isValid: isValid.value });
 };
 </script>
