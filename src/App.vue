@@ -12,7 +12,7 @@ const props = withDefaults(
   }>(),
   {
     modelValue: () => {
-      return { phoneNumber: "", isValid: undefined };
+      return { phoneNumber: "", isValid: false };
     },
 
     placeholder: () => {
@@ -34,6 +34,7 @@ const isValid: Ref<boolean | undefined> = ref();
  */
 const cModelValue: ComputedRef<{ phoneNumber: string; isValid: boolean | undefined }> = computed(() => {
   phone!.value = props.modelValue?.phoneNumber;
+  isValid!.value = props.modelValue?.isValid;
 
   return props.modelValue;
 });
