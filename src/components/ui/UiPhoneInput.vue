@@ -124,5 +124,9 @@ const onInputValue = (e: Event) => {
     border: 1px solid var(--bg-input-error);
     color: var(--color-input-error-text);
   }
+
+  &__input_error::placeholder {
+    color: var(--color-input-error-text);
+  }
 }
 </style>
